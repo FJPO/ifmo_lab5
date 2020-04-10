@@ -1,0 +1,69 @@
+//package Lab5;
+//
+//import Lab5.Commands.*;
+//import Lab5.FileInteraction.FileInteractor;
+//import Lab5.Source.LabWork;
+//
+//import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.HashMap;
+//import java.util.Scanner;
+//
+//
+//public class App{
+//    private Scanner scanner = new Scanner(System.in);
+//    private FileInteractor fileInteractor;
+//    private ArrayList<LabWork> list;
+//    private HashMap<String, Command> commandList = new HashMap<>();
+//
+//    public App(String path){
+//        for(;;) {
+//            try {
+//                this.fileInteractor = new FileInteractor(path);
+//                break;
+//            } catch (IOException e) {
+//                System.out.println("Ошибка открытия файла. Введите название файла: ");
+//                path = scanner.nextLine();
+//            }
+//        }
+//
+//        try {
+//            list = fileInteractor.readData();
+//        }catch(IOException e){
+//            System.out.println("Ошибка чтения файла");
+//            return;
+//        }
+//
+//        commandList.put(Show.name, new Show(fileInteractor, list));
+//        commandList.put(AddElement.name, new AddElement(fileInteractor, list));
+//        commandList.put(RemoveById.name, new RemoveById(fileInteractor, list));
+//        commandList.put(Clear.name, new Clear(fileInteractor, list));
+//        commandList.put(Save.name, new Save(fileInteractor, list));
+//        commandList.put(Exit.name, new Exit(fileInteractor, list));
+//        commandList.put(RemoveAt.name, new RemoveAt(fileInteractor, list));
+//        commandList.put(Shuffle.name, new Shuffle(fileInteractor, list));
+//        commandList.put(FilterGreaterThanDifficulty.name, new FilterGreaterThanDifficulty(fileInteractor, list));
+//        commandList.put(PrintAscending.name, new PrintAscending(fileInteractor, list));
+//        commandList.put(PrintDescending.name, new PrintDescending(fileInteractor, list));
+//        commandList.put(Update.name, new Update(fileInteractor, list));
+//        commandList.put(Info.name, new Info(fileInteractor, list));
+//        commandList.put(Help.name, new Help(fileInteractor, list));
+//        commandList.put(AddIfMax.name, new AddIfMax(fileInteractor, list));
+//        commandList.put(ExecuteScript.name, new ExecuteScript(fileInteractor, list));
+//        loop();
+//    }
+//
+//    public void loop(){
+//        System.out.println("Ожидает команд");
+//        for(;;){
+//            String line = scanner.nextLine().toUpperCase();
+//            try{
+//                if (commandList.get(line.split(" ")[0]).execute(line)) System.out.println("\nКоманда выполнена\n");
+//                else System.out.println("Ошибка выполнения команды");
+//            }catch(NullPointerException e){
+//                System.out.println("\nТакой команды нет\n");
+//            }
+//
+//        }
+//    }
+//}

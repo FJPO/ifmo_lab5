@@ -1,0 +1,22 @@
+execute_script script.txt
+show
+add
+labName
+2 3
+3.4
+12
+5.6
+NORMAL
+meName
+123
+2 3 4
+add
+abName
+2 3
+3.4
+12
+5.6
+NORMAL
+meName
+123
+2 3 4
